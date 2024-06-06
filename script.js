@@ -13,7 +13,6 @@ const setDVDColor = color => { dvdColorElement.style.fill = color }
 
 setDVDColor(palette[0])
 
-let prevColorChoiceIndex = 0
 let black = document.getElementById('black')
 
 let timeoutID = null
@@ -24,11 +23,7 @@ function getNewRandomColor() {
 		timeoutID = null
 	}
 
-	const currentPalette = [...palette]
-	currentPalette.splice(prevColorChoiceIndex, 1)
-	const colorChoiceIndex = Math.floor(Math.random() * currentPalette.length)
-	prevColorChoiceIndex = colorChoiceIndex < prevColorChoiceIndex ? colorChoiceIndex : colorChoiceIndex + 1
-	const colorChoice = currentPalette[colorChoiceIndex]
+	const colorChoice = palette[paletteIndex]
 
 	paletteIndex = paletteIndex >= palette.length ? 0 : (paletteIndex + 1)
 
